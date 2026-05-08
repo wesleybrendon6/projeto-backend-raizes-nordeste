@@ -9,42 +9,21 @@
   },
   "item": [
     {
-      "name": "Register",
+      "name": "T01 Register válido",
       "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"name\": \"Admin\",\r\n  \"email\": \"admin@email.com\",\r\n  \"password\": \"123456\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:3000/auth/register",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "auth",
-            "register"
-          ]
-        }
+        "method": "GET",
+        "header": []
       },
       "response": []
     },
     {
-      "name": "Login",
+      "name": "T02 Login válido",
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"email\": \"admin@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "raw": "{\r\n  \"email\": \"wesley@email.com\",\r\n  \"password\": \"123456\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -52,8 +31,8 @@
           }
         },
         "url": {
-          "raw": "POST http://localhost:3000/auth/login",
-          "protocol": "POST http",
+          "raw": "http://localhost:3000/auth/login",
+          "protocol": "http",
           "host": [
             "localhost"
           ],
@@ -67,81 +46,38 @@
       "response": []
     },
     {
-      "name": "Orders",
+      "name": "T03 Criar pedido válido",
       "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkNMSUVOVEUiLCJpYXQiOjE3NzgxODg0MTAsImV4cCI6MTc3ODI3NDgxMH0.VVwNllwhxReS9iQvnWUZNTQ4VX9RAT3f_ukaXy2QDko",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"product\": \"Pizza Nordestina\",\r\n  \"quantity\": 2,\r\n  \"canalPedido\": \"APP\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:3000/orders",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "orders"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Orders1",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkNMSUVOVEUiLCJpYXQiOjE3NzgxODg0MTAsImV4cCI6MTc3ODI3NDgxMH0.VVwNllwhxReS9iQvnWUZNTQ4VX9RAT3f_ukaXy2QDko",
-              "type": "string"
-            }
-          ]
-        },
         "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/orders",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "orders"
-          ]
-        }
+        "header": []
       },
       "response": []
     },
     {
-      "name": "Status",
+      "name": "T04 Listar pedidos",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "T05 Filtrar pedidos por canal",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "T06 Atualizar status",
       "request": {
         "auth": {
           "type": "bearer",
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkNMSUVOVEUiLCJpYXQiOjE3NzgxODg0MTAsImV4cCI6MTc3ODI3NDgxMH0.VVwNllwhxReS9iQvnWUZNTQ4VX9RAT3f_ukaXy2QDko",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6IkNMSUVOVEUiLCJpYXQiOjE3NzgyNTk0NTksImV4cCI6MTc3ODM0NTg1OX0.3DHjkXG-N2q343uC0W75iBP6LpzvzogthGxY1QSttSE",
               "type": "string"
             }
           ]
@@ -174,14 +110,53 @@
       "response": []
     },
     {
-      "name": "Payment",
+      "name": "T07 Login inválido",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "T08 Criar pedido sem token",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"product\": \"Pizza Nordestina\",\r\n  \"quantity\": 2,\r\n  \"canalPedido\": \"APP\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "T09 Canal inválido",
       "request": {
         "auth": {
           "type": "bearer",
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkNMSUVOVEUiLCJpYXQiOjE3NzgxODg0MTAsImV4cCI6MTc3ODI3NDgxMH0.VVwNllwhxReS9iQvnWUZNTQ4VX9RAT3f_ukaXy2QDko",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6IkNMSUVOVEUiLCJpYXQiOjE3NzgyNTk0NTksImV4cCI6MTc3ODM0NTg1OX0.3DHjkXG-N2q343uC0W75iBP6LpzvzogthGxY1QSttSE",
               "type": "string"
             }
           ]
@@ -190,7 +165,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"orderId\": 1,\r\n  \"paymentMethod\": \"PIX\"\r\n}",
+          "raw": "{\r\n  \"product\": \"Pizza Nordestina\",\r\n  \"quantity\": 2,\r\n  \"canalPedido\": \"FACEBOOK\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -198,14 +173,52 @@
           }
         },
         "url": {
-          "raw": "http://localhost:3000/payments",
+          "raw": "http://localhost:3000/orders",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "3000",
           "path": [
-            "payments"
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "T10 Estoque insuficiente",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6IkNMSUVOVEUiLCJpYXQiOjE3NzgyNTk0NTksImV4cCI6MTc3ODM0NTg1OX0.3DHjkXG-N2q343uC0W75iBP6LpzvzogthGxY1QSttSE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"product\": \"Pizza Nordestina\",\r\n  \"quantity\": 20,\r\n  \"canalPedido\": \"APP\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "orders"
           ]
         }
       },
